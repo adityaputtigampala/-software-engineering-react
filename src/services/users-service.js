@@ -1,10 +1,10 @@
 import axios from "axios";
-const BASE_URL = "https://www.getpostman.com/collections/1efc019964312c2de895";
-// const BASE_URL = "https://software-engineering-node-fa22.herokuapp.com/api";
-// const BASE_URL = "http://localhost:4000/api";
+//const BASE_URL = "https://www.getpostman.com/collections/1efc019964312c2de895";
+ //const BASE_URL = "";
+const BASE_URL = "http://localhost:4000/api";
 
-const LOGIN_API = `${BASE_URL}/api/login`;
-const USERS_API = `${BASE_URL}/api/users`;
+const LOGIN_API = `${BASE_URL}/login`;
+const USERS_API = `${BASE_URL}/users`;
 
 export const createUser = (user) =>
   axios.post(`${USERS_API}`, user)

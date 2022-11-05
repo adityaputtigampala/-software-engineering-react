@@ -9,6 +9,7 @@ export const Login = () => {
     // {username: 'user1', email: 'user1', password: 'user1', _id: '123'}
   // ]);
   const [newUser, setNewUser] = useState({});
+  console.log(newUser, "new user")
   const [loginUser, setLoginUser] = useState({});
   // const navigate = useNavigate()
 
