@@ -1,8 +1,8 @@
 import axios from "axios";
 //const BASE_URL = "http://my-node-express-project-env.eba-hxq4pgvm.us-east-1.elasticbeanstalk.com"
-const BASE_URL = "http://localhost:4000/api";
-const TUITS_API = `${BASE_URL}`;
-const USERS_API = `${BASE_URL}/users`;
+const BASE_URL = process.env.REACT_APP_BASE_URL
+const TUITS_API = `${BASE_URL}/api/tuits`;
+const USERS_API = `${BASE_URL}/api/users`;
 
 export const findAllTuits = () =>
   axios.get(TUITS_API)
@@ -16,8 +16,8 @@ export const findTuitByUser = (uid) =>
   axios.get(`${USERS_API}/${uid}/tuits`)
     .then(response => response.data);
 
-export const createTuit = (uid, tuit) =>
-  axios.post(`${TUITS_API}/tuits`, tuit)
+export const createTuitByUser = (uid, tuit) =>
+  axios.post(`${USERS_API}/tuits`, tuit)
     .then(response => response.data);
 
 export const updateTuit = (tid, tuit) =>
