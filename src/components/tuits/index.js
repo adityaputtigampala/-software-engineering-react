@@ -1,17 +1,23 @@
-import React from "react";
-import './tuits.css';
 import Tuit from "./tuit";
+import * as likesService from "./likes-service";
+const Tuits = ({tuits = [], deleteTuit,
+                refreshTuits}) => {
 
-function Tuits({tuits = [], deleteTuit}) {
-    return (
+  const likeTuit = (tuit) =>
+    likesService
+      .userTogglesTuitLikes("me", tuit._id)
+      .then(refreshTuits)
+      .catch(e => alert(e))
+
+  return (
     <div>
-      <ul className="ttr-tuits list-group">
+      <ul>
         {
-          tuits.map && tuits.map(tuit => {
-            return (
-              <Tuit key={tuit._id} deleteTuit={deleteTuit} tuit={tuit}/>
-            );
-          })
+          tuits.map(tuit =>
+            <Tuit key={tuit._id}
+              deleteTuit={deleteTuit}
+              likeTuit={likeTuit}
+              tuit={tuit}/>)
         }
       </ul>
     </div>
